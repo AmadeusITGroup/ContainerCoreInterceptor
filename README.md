@@ -1,4 +1,4 @@
-# core_interceptor
+![Container Core Interceptor Logo](images/Logo.png?raw=true)
 
 `Core_interceptor`  can be used to handle core dumps in a dockerized
 environment.
@@ -7,7 +7,7 @@ It listens on the local docker daemon socket for events. When it receives a
 `die` event it checks if the dead container produced any core dump or java
 heap dump.  Then the container is committed as `IMAGE_NAME:TAG`:
 
-* `IMAGE_NAME` is composed by the name and tag (if any) of the dead container 
+* `IMAGE_NAME` is composed by the name and tag (if any) of the dead container
   source image separated by "_".  `TAG` is composed by the first 12
   characters of the dead container ID
 
