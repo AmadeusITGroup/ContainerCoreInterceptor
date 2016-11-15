@@ -1,6 +1,0 @@
-environments:
-    - [linux, go-1.6]
-build:
-    make build
-test:
-    make test
