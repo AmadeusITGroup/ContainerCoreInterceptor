@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/AmadeusITGroup/ContainerCoreInterceptor.svg?branch=master)](https://travis-ci.org/AmadeusITGroup/ContainerCoreInterceptor)
+
 ![Container Core Interceptor Logo](images/Logo.png?raw=true)
 
 `Core_interceptor`  can be used to handle core dumps in a dockerized
