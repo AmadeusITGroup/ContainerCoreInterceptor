@@ -114,7 +114,7 @@ func pushContainer(event *docker.APIEvents, conf Conf, client ClientInterface) (
 	return
 }
 
-func connectToKafka(conf Conf) error {
+func connectToKafka(conf *Conf) error {
 	var err error
 	conf.Producer, err = sarama.NewSyncProducer([]string{conf.KafkaServer}, nil)
 	if err != nil {
@@ -123,7 +123,7 @@ func connectToKafka(conf Conf) error {
 	return err
 }
 
-func closeKafkaConnection(conf Conf) {
+func closeKafkaConnection(conf *Conf) {
 	if err := conf.Producer.Close(); err != nil {
 		logError("Couldn't close the connection to the kafka server " + conf.KafkaServer + " - " + err.Error())
 		return
@@ -242,10 +242,10 @@ func main() {
 	backoff := 1
 
 	if len(conf.KafkaServer) != 0 {
-		if err := connectToKafka(conf); err != nil {
+		if err := connectToKafka(&conf); err != nil {
 			return
 		}
-		defer closeKafkaConnection(conf)
+		defer closeKafkaConnection(&conf)
 	}
 
 	for {
